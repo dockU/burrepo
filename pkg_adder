@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wget -o /tmp/pkgs.tar.gz https://github.com/fly/burrepo/archive/master.tar.gz
+cd /tmp/
+tar -xf /tmp/pkgs.tar.gz
+cp /tmp/burrepo-master/pkgs/*.pkg.tar.xz /srv/repo/pkgs/
+/usr/bin/repo-add /srv/repo/burrepo.db.tar.gz /srv/repo/pkgs/*.pkg.tar.xz
+echo "done adding packages."
